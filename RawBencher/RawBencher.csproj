@@ -107,29 +107,14 @@
   <ItemGroup>
     <Compile Include="Benchers\BencherBase.cs" />
     <Compile Include="Benchers\HandCodedBencherUsingBoxing.cs" />
-    <Compile Include="Benchers\LLBLGenProNoChangeTrackingQuerySpecPocoBencher.cs" />
-    <Compile Include="Benchers\LLBLGenProNoChangeTrackingLinqPocoBencher.cs" />
-    <Compile Include="Benchers\OakDynamicDbDtoBencher.cs" />
-    <Compile Include="Benchers\PetaPocoFastBencher.cs" />
     <Compile Include="Benchers\RawDbDataReaderBencher.cs" />
     <Compile Include="Benchers\IBencher.cs" />
-    <Compile Include="Benchers\OakDynamicDbNormalBencher.cs" />
-    <Compile Include="Benchers\OrmLiteBencher.cs" />
-    <Compile Include="Benchers\NHibernateNormalBencher.cs" />
-    <Compile Include="Benchers\LinqToSqlNoChangeTrackingBencher.cs" />
-    <Compile Include="Benchers\LinqToSqlNormalBencher.cs" />
     <Compile Include="Benchers\EntityFrameworkNoChangeTrackingBencher.cs" />
     <Compile Include="Benchers\EntityFrameworkNormalBencher.cs" />
     <Compile Include="Benchers\DapperBencher.cs" />
     <Compile Include="Benchers\DataTableBencher.cs" />
     <Compile Include="Benchers\HandCodedBencher.cs" />
-    <Compile Include="Benchers\LLBLGenProResultsetCachingBencher.cs" />
-    <Compile Include="Benchers\LLBLGenProNoChangeTrackingBencher.cs" />
-    <Compile Include="Benchers\LLBLGenProNormalBencher.cs" />
-    <Compile Include="Benchers\TelerikDomainBencher.cs" />
-    <Compile Include="Benchers\TelerikFluentBencher.cs" />
     <Compile Include="BenchResult.cs" />
-    <Compile Include="Benchers\PetaPocoBencher.cs" />
     <Compile Include="PetaPoco.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Program.cs" />
@@ -152,10 +137,6 @@
       <Project>{ac909e22-26d0-47cf-98bc-dd07309d3a77}</Project>
       <Name>EF6.Bencher.Persistence</Name>
     </ProjectReference>
-    <ProjectReference Include="..\L2S\DAL\L2S.Bencher.csproj">
-      <Project>{59322c25-fcc6-4635-a7ad-dc811f2fd1e0}</Project>
-      <Name>L2S.Bencher</Name>
-    </ProjectReference>
     <ProjectReference Include="..\LLBLGen42\AdventureWorks.Dal.Adapter.v42.csproj">
       <Project>{cede6074-9d0e-49e2-8600-532b89b19111}</Project>
       <Name>AdventureWorks.Dal.Adapter.v42</Name>
@@ -163,22 +144,6 @@
     <ProjectReference Include="..\LLBLGen42\AdventureWorks.Dal.Adapter.v42DBSpecific.csproj">
       <Project>{b6304537-00d2-449d-b60c-d1ccd97b899e}</Project>
       <Name>AdventureWorks.Dal.Adapter.v42DBSpecific</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NH\DAL\Model\NH.Bencher.Model.csproj">
-      <Project>{45daeb56-b84d-4d7a-bf22-293f1ce07dbb}</Project>
-      <Name>NH.Bencher.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NH\DAL\Persistence\NH.Bencher.Persistence.csproj">
-      <Project>{3e9ca88c-03ec-445a-960a-242511b6ef55}</Project>
-      <Name>NH.Bencher.Persistence</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\OakDynamicDb.Bencher\OakDynamicDb.Bencher.csproj">
-      <Project>{106ced47-76bc-477e-9fff-3e6042f874eb}</Project>
-      <Name>OakDynamicDb.Bencher</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Telerik\Telerik.Bencher.Model.csproj">
-      <Project>{ddb61239-988e-41e3-b583-36eb3b0bd2b1}</Project>
-      <Name>Telerik.Bencher.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
