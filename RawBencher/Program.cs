@@ -52,11 +52,9 @@ namespace RawBencher
 
 			// need to supply different connection string names to Telerik benchers for different "cached" contexts 
 			RegisteredBenchers.Add(new HandCodedBencher() { CommandText = SqlSelectCommandText, ConnectionStringToUse = ConnectionString });
-			RegisteredBenchers.Add(new HandCodedBencherUsingBoxing() { CommandText = SqlSelectCommandText, ConnectionStringToUse = ConnectionString });
 			RegisteredBenchers.Add(new DapperBencher() { CommandText = SqlSelectCommandText, ConnectionStringToUse = ConnectionString });
 			RegisteredBenchers.Add(new EntityFrameworkNoChangeTrackingBencher());
 			RegisteredBenchers.Add(new EntityFrameworkNormalBencher());
-			RegisteredBenchers.Add(new DataTableBencher() { CommandText = SqlSelectCommandText, ConnectionStringToUse = ConnectionString });
 
 			DisplayHeader();
 	
@@ -332,20 +330,6 @@ namespace RawBencher
 			Console.WriteLine("\nChange tracking individual fetches ({0} elements, {1} runs), no caching", IndividualKeysAmount, LoopAmount);
 			Console.WriteLine("------------------------------------------------------------------------------");
 			foreach(var bencher in RegisteredBenchers.Where(b => b.UsesChangeTracking && !b.UsesCaching).OrderBy(b => b.IndividualFetchAverage))
-			{
-				Console.WriteLine("{0,-" + longestNameLength + "} : {1:N2}ms per individual fetch", bencher.CreateFrameworkName(), bencher.IndividualFetchAverage / IndividualKeysAmount);
-			}
-
-			Console.WriteLine("\nChange tracking fetches, set fetches ({0} runs), caching", LoopAmount);
-			Console.WriteLine("------------------------------------------------------------------------------");
-			foreach(var bencher in RegisteredBenchers.Where(b => b.UsesChangeTracking && b.UsesCaching).OrderBy(b => b.SetFetchAverage))
-			{
-				Console.WriteLine("{0,-" + longestNameLength + "} : {1:N2}ms.\tEnumeration average: {2:N2}ms", bencher.CreateFrameworkName(), bencher.SetFetchAverage, bencher.EnumerationAverage);
-			}
-
-			Console.WriteLine("\nChange tracking individual fetches ({0} elements, {1} runs), caching", IndividualKeysAmount, LoopAmount);
-			Console.WriteLine("------------------------------------------------------------------------------");
-			foreach(var bencher in RegisteredBenchers.Where(b => b.UsesChangeTracking && b.UsesCaching).OrderBy(b => b.IndividualFetchAverage))
 			{
 				Console.WriteLine("{0,-" + longestNameLength + "} : {1:N2}ms per individual fetch", bencher.CreateFrameworkName(), bencher.IndividualFetchAverage / IndividualKeysAmount);
 			}
